@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty Parlour</title>
+  <!-- React and ReactDOM from CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Babel for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Agu Display' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Amita' rel='stylesheet'>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffefba, #ffffff);
+    }
+
+    .header {
+      background-color: #900eed;
+      padding: 15px 30px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin: 0;
+      font-family: 'Aclonica';font-size: 25px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .navbar a {
+      color: white;
+      font-family: 'Amita';font-size: 15px;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #ffe0b2;
+      text-decoration: underline;
+      transform: scale(1.1);
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    h2 {
+      font-family: 'Agu Display';font-size: 22px;
+      color: #900eed;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    h3 {
+      color: #0ed3ed;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .services ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .services li {
+      background: #ffe0b2;
+      font-family: Fantasy;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .services li:hover {
+      transform: scale(1.1);
+      background: #ff6f61;
+      color: white;
+    }
+
+    .gallery img {
+      width: 160px;
+      height: 160px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.5);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .footer {
+      background-color: #2a2d34;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      margin-top: 30px;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .price-list {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .price-list table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 80%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .price-list th,
+    .price-list td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .price-list th {
+      background-color: #ed68e7;
+      color: white;
+      font-weight: bold;
+    }
+
+    .price-list td {
+      background-color: #fff7e6;
+    }
+  .gallery p {
+    font-family: Cursive;
+  }
+  @media only screen and (min-width: 600px) {
+  .header h1 {
+      float: left;
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin: 0;
+      font-family: 'Aclonica';font-size: 25px;
+    }
+    .gallery img {
+      width: 280px;
+      height: 280px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+}
+  </style>
+  <style>
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+  </style>
+  <style>
+  .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #5a1e85;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.navbar a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #c0eb91;
+}
+
+.navbar a:hover {
+  color: #ff69b4;
+}
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+const { useState, useEffect } = React;
+  
+const Header = () => (
+  <header className="header">
+    <div className="logo-container">
+      <img src="img/logo.png" alt="Beauty Parlour Logo" className="logo" />
+      <h1>Beauty Parlour</h1>
+    </div>
+    <nav className="navbar">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+);
+
+
+    const Services = () => (
+      <section id="services" className="services">
+        <h2>Our Services</h2>
+        <ul>
+          <li>Facials</li>
+          <li>Haircuts</li>
+          <li>Manicure & Pedicure</li>
+          <li>Makeup</li>
+        </ul>
+        <div className="price-list">
+          <h3>Price List</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Facials</td>
+                <td>$30</td>
+              </tr>
+              <tr>
+                <td>Haircuts</td>
+                <td>$20</td>
+              </tr>
+              <tr>
+                <td>Manicure & Pedicure</td>
+                <td>$25</td>
+              </tr>
+              <tr>
+                <td>Makeup</td>
+                <td>$50</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    );
+
+    const Gallery = () => (
+      <section id="gallery" className="gallery">
+    <h2>Gallery</h2>
+    <p>Check out our stunning transformations!</p>
+      <div>
+          <img src="img/gallery1.jpg" alt="Gallery Item 1" />
+          <img src="img/gallery2.jpg" alt="Gallery Item 2" />
+          <img src="img/gallery3.jpg" alt="Gallery Item 3" />
+          <img src="img/gallery4.jpg" alt="Gallery Item 4" />
+        <img src="img/gallery5.jpeg" alt="Gallery Item 5" />
+          <img src="img/gallery6.jpeg" alt="Gallery Item 6" />
+      </div>
+      </section>
+    );
+
+    const Contact = () => (
+      <section id="contact">
+        <h2>Contact Us</h2>
+              <p>📍 Location: 123 Main Street, City, Country</p>
+        <p>Email: info@beautyparlour.com</p>
+        <p>Phone: +123 456 7890</p>
+      </section>
+    );
+
+    const Footer = () => (
+      <footer className="footer">
+        <p>&copy; 2024 Beauty Parlour. All rights reserved.</p>
+      </footer>
+    );
+    
+    const Galleryanim = () => {
+      const images = [
+        "slideshow/gallery-anim1.jpg",
+        "slideshow/gallery-anim2.jpg",
+        "slideshow/gallery-anim3.jpg",
+        "slideshow/gallery-anim4.jpg"
+      ];
+      const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 3000); // Change image every 3 seconds
+        return () => clearInterval(interval);
+      }, [images.length]);
+    
+      return (
+        <section id="gallery-anim" className="gallery-anim">
+          <h2></h2>
+     <div className="slideshow">
+            <img
+              src={images[currentImageIndex]}
+              alt={`Gallery Slide ${currentImageIndex + 1}`}
+              className="slideshow-image"
+            />
+          </div>
+          <style>
+            {`
+              .slideshow {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                height: 250px;
+                overflow: hidden;
+              }
+              .slideshow-image {
+                border: 8px double white;
+                width: 80%;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: opacity 1s ease-in-out;
+              }
+            `}
+          </style>
+        </section>
+      );
+    };
+    
+    const App = () => (
+      <div>
+        <Header />
+        <Galleryanim />
+        <div className="content">
+          <Services />
+          <Gallery />
+          <Contact />
+        </div>
+        <Footer />
+      </div>
+    );
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
